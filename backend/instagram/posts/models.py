@@ -2,25 +2,14 @@ from django.db import models
 from users.models import InstagramUser
 
 
-class Following(models.Model):
-    """Модель, показывающая кто(follower) кого(following) отслеживает"""
-
-    follower = models.ForeignKey(InstagramUser, related_name='following_relations', on_delete=models.CASCADE)
-    following = models.ForeignKey(InstagramUser, related_name='follower_relations',on_delete=models.CASCADE)
-    is_blocked = models.BooleanField(default=False)
-
-    class Meta:
-        unique_together = ('follower', 'following')
-
-    def __str__(self):
-        return f'{self.follower.username} follows {self.following.username}'
-
-
 class PostLikes(models.Model):
     """Модель, показывающая кому(user) какой пост(post) понравился"""
 
     user = models.ForeignKey(InstagramUser, on_delete=models.CASCADE)
     post = models.ForeignKey('Posts', on_delete=models.CASCADE)
+
+    class Meta:
+        unique_together = ('user', 'post')
 
     def __str__(self):
         return f'{self.user} to {self.post}'
@@ -40,6 +29,9 @@ class CommentLikes(models.Model):
     user = models.ForeignKey(InstagramUser, on_delete=models.CASCADE)
     comment = models.ForeignKey('Comments', on_delete=models.CASCADE)
 
+    class Meta:
+        unique_together = ('user', 'comment')
+
     def __str__(self):
         return f'{self.user} to {self.comment}'
 
@@ -47,7 +39,7 @@ class CommentLikes(models.Model):
 class Comments(models.Model):
     """Модель, представляющая комментарии"""
 
-    post = models.ForeignKey(Posts, on_delete=models.CASCADE)
+    post = models.ForeignKey(Posts, on_delete=models.CASCADE, related_name='comments')
     author = models.ForeignKey(InstagramUser, on_delete=models.CASCADE)
     text = models.TextField(blank=False)
 

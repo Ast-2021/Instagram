@@ -10,3 +10,16 @@ class InstagramUser(AbstractUser):
 
     def __str__(self):
         return self.username
+    
+
+class Relations(models.Model):
+    """Модель, показывающая кто(follower) кого(following) отслеживает"""
+
+    follower = models.ForeignKey(InstagramUser, related_name='following_relations', on_delete=models.CASCADE)
+    following = models.ForeignKey(InstagramUser, related_name='follower_relations',on_delete=models.CASCADE)
+
+    class Meta:
+        unique_together = ('follower', 'following')
+
+    def __str__(self):
+        return f'{self.follower.username} follows {self.following.username}'
