@@ -15,7 +15,6 @@ class CommentsCreateSerializer(serializers.ModelSerializer):
             data['author'] = request.user.id
             data['post'] = pk
 
-        print(data)
         return super().run_validation(data)
 
 
@@ -49,4 +48,11 @@ class PostUpdateSerializer(serializers.ModelSerializer):
 class PostCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Posts
-        fields = ['image', 'description']
+        fields = ['image', 'description', 'author']
+
+    def run_validation(self, data): 
+        request = self.context.get('request') 
+        if request and hasattr(request, 'user'):
+            data = data.copy() 
+            data['author'] = request.user.pk
+        return super().run_validation(data)

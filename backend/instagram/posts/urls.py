@@ -12,6 +12,6 @@ urlpatterns = [
     path('<int:pk>/comment/create/', CommentCreateView.as_view(), name='create_comment'),
     path('post_count_likes/<int:pk>/', CountLikesOfPost.as_view()),
     path('comment_count_likes/<int:pk>/', CountLikesOfComment.as_view()),
-    path('post_add_or_remove_like/<int:pk>/', PostLikesView.as_view(), name='post_plus_like'),
-    path('comment_add_or_remove_like/<int:pk>/', CommentLikesView.as_view(), name='comment_plus_like'),
+    path('post_add_or_remove_like/<int:pk>/', PostLikesView.as_view(), name='post_add_or_remove_like'),
+    path('comment_add_or_remove_like/<int:pk>/', CommentLikesView.as_view(), name='comment_add_or_remove_like'),
 ]
