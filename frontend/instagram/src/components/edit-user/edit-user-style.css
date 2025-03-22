@@ -1,0 +1,17 @@
+.form-for-edit-user-profile {
+    margin-top: 100px;
+}
+
+.input-for-edit-image-user {
+    width: 20%;
+}
+
+.button-for-edit-profile-user {
+    width: 10%;
+    
+}
+
+.box-for-button-edit-profile-user {
+    display: flex;
+    justify-content: center;
+}
