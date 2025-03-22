@@ -1,0 +1,155 @@
+.image-page {
+    padding: 70px 360px 70px 360px;
+}
+
+.author {
+    display: flex;
+    align-items: center;
+    height: 8vh;
+    margin: 10px;
+}
+
+.author img {
+    aspect-ratio: 1 / 1;
+    height: auto;
+    object-fit: cover;
+    height: 100%;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.post-image {
+    border: 1px solid #b6b4b4;
+    overflow: hidden;
+    padding: 20px 20px 90px 20px;
+}
+
+.post-image img {
+    width: 100%;
+}
+
+.like {
+    cursor: pointer;
+}
+
+.comment-block {
+    text-align: left;
+    margin-top: 20px;
+    display: flex;
+}
+
+.like-button {
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    margin: 10px
+}
+
+.like-button h5 {
+    margin-left: 5px;
+}
+
+.description {
+    margin-left: 30px;
+    color: black;
+    font-size: 20px;
+}
+
+.form-create-comment {
+    display: flex;
+    align-items: center;
+    margin: 40px 0px 40px 0px;
+}
+
+.button-create-comment {
+    background-color: #4CAF50;
+    border-radius: 12px;
+    width: 20%;
+    margin-left: 30px;
+}
+
+.input-create-comment {
+    width: 70%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.rating-comment {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.count-likes {
+    margin: 0px 10px 0px 5px
+}
+
+.comment-text {
+    margin: 10px 0px 10px 0px;
+}
+
+.count-hearts-comment {
+    margin-left: 5px;
+}
+
+.button-delete-comment {
+    width: 100%;
+    background-color: rgb(144, 4, 4);
+}
+
+.delete-button-block {
+    display: flex;
+    align-items: center;
+}
+
+.comment-data {
+    flex-grow: 1;
+}
+
+.delete-post-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.delete-button-post {
+    width: 15%;
+    background-color: rgb(150, 2, 2)
+}
+
+.description-box {
+    display: flex;
+    align-items: center;
+}
+
+.label-plus-button-of-edit-post {
+    display: flex;
+    align-items: center;
+}
+
+input.input-edit-post {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    margin: 0px 20px 0px 20px;
+}
+
+.label-plus-button-of-edit-post label {
+    align-items: center;
+    margin-bottom: 0px;
+}
+
+.button-for-edit-description {
+    margin-left: 30px;
+}
+
+.edit-description {
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.fa-comment {
+    cursor: pointer;
+}
