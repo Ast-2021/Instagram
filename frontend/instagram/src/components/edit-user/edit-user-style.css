@@ -1,5 +1,5 @@
 .form-for-edit-user-profile {
-    margin-top: 100px;
+    margin-top: 10px;
 }
 
 .input-for-edit-image-user {
@@ -14,4 +14,9 @@
 .box-for-button-edit-profile-user {
     display: flex;
     justify-content: center;
+}
+
+.error-text-form {
+    margin-top: 100px;
+    color: red;
 }

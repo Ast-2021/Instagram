@@ -9,7 +9,7 @@ import get_pk from "../../lib/pk"
 import EditDescriptionPost from "./edit-description-post";
 
 
-const ButtonLike = ({ likes, onLike, postDescription, commentSection, postId }) => {
+const ButtonLike = ({ likes, onLike, postDescription, commentSection, postId, author }) => {
     const [description, setDescription] = useState(postDescription)
     const [showComment, setShowComment] = useState(false);
     const [showFormEditDescription, setShowFowmEditDescription] = useState(false);
@@ -51,7 +51,10 @@ const ButtonLike = ({ likes, onLike, postDescription, commentSection, postId }) 
                 : 
                 (<div className="description-box">
                     <p className="description">{description}</p>
+                    {author === pk && 
                         <FontAwesomeIcon icon={faPenToSquare} className="edit-description" onClick={handleEditForm}/>
+                    }
+                    
                 </div>)}
             </div>
             {showComment && commentSection}

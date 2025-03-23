@@ -45,7 +45,7 @@ const Post = () => {
         <div className="image-page">
             <AuthorInfo author={data.author} />
             <PostImage image={data.image} />
-            <ButtonLike likes={likes} onLike={handleLike} postDescription={data.description} postId={pk}
+            <ButtonLike likes={likes} onLike={handleLike} postDescription={data.description} postId={pk} author={data.author}
                 commentSection={<CommentsSection postId={pk} comments={comments} setComments={setComments} />} />
             <div className="delete-post-box">
                 {data.author === Number(userPK) && <button className="delete-button-post" onClick={handleDelete}>Delete post</button>}

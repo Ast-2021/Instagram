@@ -17,7 +17,6 @@ class InstagramUserList(generics.ListAPIView):
 class InstagramUserUpdate(generics.UpdateAPIView):
     """Представление обновляет профиль пользователя"""
     permission_classes = [IsAuthenticated]
-
     queryset = InstagramUser.objects.all()
     serializer_class = UserUpdateSerializer
 
@@ -39,9 +38,11 @@ class InstagramUserDelete(generics.DestroyAPIView):
 
 class InstagramUserGet(APIView):
     """Представление возвращает пользователя по pk"""
+    permission_classes = [IsAuthenticated]
+
     def get(self, request, pk):
         user = InstagramUser.objects.get(pk=pk)
-        serializer = UserGetSerializer(user)
+        serializer = UserGetSerializer(user, context={"request": request})
         return Response(serializer.data)
     
 
@@ -69,6 +70,8 @@ class RelationsView(APIView):
 
 class AddOrRemoveFollowingView(APIView):
     """Представление добавляет подписчика, либо удаляет если он уже был"""
+    permission_classes = [IsAuthenticated]
+
     def post(self, request, pk):
         following = get_object_or_404(InstagramUser, pk=pk)
         

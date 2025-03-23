@@ -1,0 +1,30 @@
+
+services: 
+  db:
+    image: postgres:17.4 
+    container_name: postgres_db
+    restart: always
+    environment:
+      POSTGRES_USER: instagram_db_user
+      POSTGRES_PASSWORD: instagram_db_user
+      POSTGRES_DB: instagram_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+  backend:
+    build:
+      context: ./backend
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+  frontend:
+    build: 
+      context: ./frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+volumes:
+  postgres_data:

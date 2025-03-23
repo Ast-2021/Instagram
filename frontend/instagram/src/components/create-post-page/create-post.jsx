@@ -18,18 +18,17 @@ function CreatePost() {
 
         try {
           const response = await request_create_post({formData})
-          console.log(response.data)
           navigate(`/post/${response.data.pk}/`);
         } catch (error) {
-          setError('Failed to create post')
-          console.log(error)
+          setError(error.response.request.responseText)
         };
   };
 
   return (
     <div className="create">
       <h2>Create Post</h2>
-      {error && <p className="error-text">{error}</p>}
+      {console.log(error)}
+      <p className="error-text">{error}</p>
       <form onSubmit={handleSubmit}>
         <div>
           <label>Image:</label>

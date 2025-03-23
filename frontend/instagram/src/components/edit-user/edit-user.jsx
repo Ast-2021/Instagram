@@ -53,15 +53,15 @@ const EditMyPage = () => {
         try {
             await request_patch_user({ pk, formData })
             navigate('/my-page/')
-        } catch {
-            setError('Failed to update user');
+        } catch (error) {
+            setError(error.response.request.responseText);
         }
     };
 
     return (
         <div>
             <h2>Редактирование профиля</h2>
-            {error && <p>{error}</p>}
+            <p className="error-text-form">{error}</p>
             <form className="form-for-edit-user-profile" onSubmit={handleSubmit}>
                 <label>
                     Username:

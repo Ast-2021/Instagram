@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models import *
-from posts.serializers import *
+from posts.serializers import PostGetSerializer
 
 
 class UserCreateSerializer(serializers.ModelSerializer):
@@ -21,7 +21,7 @@ class UsersListSerializer(serializers.ModelSerializer):
 
 
 class UserGetSerializer(serializers.ModelSerializer):
-    posts = PostGetSerializer(many=True, read_only=True)
+    posts = PostGetSerializer(many=True)
     
     class Meta:
         model = InstagramUser
